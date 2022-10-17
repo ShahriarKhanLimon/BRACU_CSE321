@@ -1,0 +1,143 @@
+
+No 1 ans:
+
+#!/bin/bash
+
+sum=0
+i=0
+while [ $i -le 9 ];
+do
+i=$(( $i + 1))
+echo "Enter number $i:"
+read num
+
+if [[  $num%2 -eq 0  &&  $num%8 -ne 0   ]]
+then
+sum=$(( sum + num ))
+fi
+
+done
+
+echo "Summation is: $sum"
+
+No 2 ans:
+
+#!/bin/bash
+
+echo "Enter a Number: "
+
+read num
+if [[  $num%4 -ne 0  &&  $num%5 -ne 0  &&  $num%10 -eq 0   ]]
+then
+echo "Rasengan"
+else 
+echo "It is not possible that a number can be neither a multiple of 4 nor a multiple of 5 but divisible by 10"
+echo " "
+fi
+
+if [[  (( $num%5 -eq 0  ||  $num%6 -eq 0 ))  &&   $num%$(( 5 * 6 )) -ne 0  ]]
+then
+echo "Oodama Rasengan"
+fi
+
+if [[  $num%5 -eq 0  &&  $num%6 -eq 0  ]]
+then
+echo "Rasen Shuriken"
+fi
+
+No 3 ans:
+
+!/bin/bash
+
+echo "Enter the number"
+read num
+i=2
+while [ $i -le $(( num/2 )) ];
+do
+i=$(( $i + 1))
+c=$((num%i))
+if [ $c -eq 0 ]
+then
+echo "$num the number is not a Happy Prime."
+exit
+else 
+echo "$num the number is a Happy Prime."
+exit
+fi
+done
+
+No 4 ans:
+
+
+#!/bin/bash
+
+echo "Enter first number 1: "
+read n1 
+echo "Enter second number 2: " 
+read n2 
+echo "Enter third number 3: "
+read n3
+
+a1 () {
+
+if [ $n1 -gt $n2 ]
+then
+local r=$(( $n1 - $n2 ))
+echo "Substraction result is $r"
+fi
+}
+
+a2 () {
+
+if [ $n3 -lt $n2 ]
+then
+local r=$(( $n3 + $n2 ))
+echo "Addition result is $r"
+fi
+}
+
+a3 () {
+
+if [ $n2 -eq $n3 ]
+then
+local r=$(( $n2 * $n3 ))
+echo "Multiplication result is $r"
+fi
+}
+
+a1
+a2
+a3
+No 5 ans:
+
+
+echo "Enter size of array";
+
+read n;
+
+read -a my_array
+
+sorted=1;
+
+for ((i = 0; i < $n-1; i++))
+
+do
+
+sorted=0;
+
+for ((i = 0; j < $n-1-$i; j++))
+
+do
+
+if [[ ${my_array[$j]} -gt ${my_array[$j+1]} ]] 
+then
+
+temp=${my_array[$j]};
+
+my_array[$j]=${my_array[$j+1]};
+my_array[$j+1]=$temp; 
+sorted=1;
+
+fi
+
+done
