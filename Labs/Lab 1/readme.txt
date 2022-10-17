@@ -1,0 +1,1 @@
+This lab task is for linux shell command which needs to in terminal of linux.
