@@ -1,0 +1,126 @@
+No 1 ans:
+
+shahriar@Shahriar:~$ cat > key1.txt
+^Z
+[1]+  Stopped                 cat > key1.txt
+shahriar@Shahriar:~$ cat > key2.txt
+^Z
+[2]+  Stopped                 cat > key2.txt
+shahriar@Shahriar:~$ cat > key3.txt
+^Z
+[3]+  Stopped                 cat > key3.txt
+shahriar@Shahriar:~$ mkdir Box1
+shahriar@Shahriar:~$ mkdir Box2
+shahriar@Shahriar:~$ cp key1.txt Box1
+shahriar@Shahriar:~$ cp key2.txt Box1
+shahriar@Shahriar:~$ mv key3.txt Box2
+shahriar@Shahriar:~$ mkdir Box3
+shahriar@Shahriar:~$ mv Box1 Box3
+shashahriar@Shahriar:~/Box3$ cd Box1
+shahriar@Shahriar:~/Box3/Box1$ ls -l
+total 8
+-rw-rw-r-- 1 shahriar shahriar 8 অক্টোবর   30 21:08 key1.txt
+-rw-rw-r-- 1 shahriar shahriar 5 অক্টোবর   30 20:31 key2.txt
+shahriar@Shahriar:~/Box3/Box1$ cd ..
+shahriar@Shahriar:~/Box3$ cd Box1
+shahriar@Shahriar:~/Box3/Box1$ ls -l
+total 8
+-rw-rw-r-- 1 shahriar shahriar 8 অক্টোবর   30 21:08 key1.txt
+-rw-rw-r-- 1 shahriar shahriar 5 অক্টোবর   30 20:31 key2.txt
+shahriar@Shahriar:~/Box3/Box1$ chmod u=rx key1.txt
+shahriar@Shahriar:~/Box3/Box1$ chmod g=rx key1.txt
+shahriar@Shahriar:~/Box3/Box1$ chmod u=rx key2.txt
+shahriar@Shahriar:~/Box3/Box1$ chmod g=rx key2.txt
+shahriar@Shahriar:~/Box3/Box1$ ls -l
+total 8
+-r-xr-xr-- 1 shahriar shahriar 8 অক্টোবর   30 21:08 key1.txt
+-r-xr-xr-- 1 shahriar shahriar 5 অক্টোবর   30 20:31 key2.txt
+shahriar@Shahriar:~/Box3/Box1$ cd ..
+shahriar@Shahriar:~/Box3$ cd ..
+shahriar@Shahriar:~$ pwd
+/home/shahriar
+shahriar@Shahriar:~$ mv Box3 root
+shahriar@Shahriar:~$ rm -r *
+rm: descend into write-protected directory 'root'?
+shahriar@Shahriar:~$ ls
+root
+shahriar@Shahriar:~$
+
+
+No 2 ans:
+shahriar@Shahriar:~$ cat > hello.txt
+Hello, How are you?
+Hello, Fine, My Name is Hello.
+What's yours?
+Mine is Hello too
+^Z
+[2]+  Stopped                 cat > hello.txt
+shahriar@Shahriar:~$ grep -c 'Hello' hello.txt
+3
+shahriar@Shahriar:~$
+No 3 ans:
+
+A soft link acts as a pointer or a reference to the file name. It does not access the data available in the original file. If the earlier file is deleted, the soft link will be pointing to a file that does not exist anymore.
+
+A hard link acts as a copy of the selected file. It accesses the data available in the original file.
+If the earlier selected file is deleted, the hard link to the file will still contain the data of that file.
+
+No 4 ans:
+
+shahriar@Shahriar:~$ cat > firstone.txt
+Hello, How are you?
+Hello, Fine, My Name is Hello.
+What's yours?
+Mine is Hello too
+^Z
+[3]+  Stopped                 cat > firstone.txt
+shahriar@Shahriar:~$ ln firstone.txt second.txt
+shahriar@Shahriar:~$
+No 5 ans:
+
+shahriar@Shahriar:~$ ls -a
+.              .cache        .mozilla    .sudo_as_admin_successful
+..             .config       .profile    .vboxclient-clipboard.pid
+.bash_history  firstone.txt  root        .vboxclient-display-svga-x11.pid
+.bash_logout   .gnupg        second.txt  .vboxclient-draganddrop.pid
+.bashrc        .local        .ssh        .vboxclient-seamless.pid
+shahriar@Shahriar:~$
+No 6 ans:
+
+
+shahriar@Shahriar:~$ cat > a.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+12
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+^Z
+[4]+  Stopped                 cat > a.txt
+shahriar@Shahriar:~$ sed -n '15,21p' a.txt
+15
+16
+17
+18
+19
+20
+21
+shahriar@Shahriar:~$
